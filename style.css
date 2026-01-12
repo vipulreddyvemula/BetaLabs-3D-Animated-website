@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #000;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 2rem 5%;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 5%;
+    position: relative;
+}
+
+.hero {
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    opacity: 0.8;
+    font-weight: 300;
+    animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.cta {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid #fff;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+    animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+.cta:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.about {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.about-content {
+    max-width: 900px;
+}
+
+.about h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    letter-spacing: -1px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.services {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.services-content {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.services h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 4rem;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.service-card {
+    padding: 3rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    background: rgba(255,255,255,0.05);
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.service-card p {
+    opacity: 0.8;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.gallery {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.gallery-content {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.gallery h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 4rem;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.gallery-item span {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.contact p {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1.2rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: all 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #fff;
+    background: rgba(255,255,255,0.05);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+footer {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    list-style: none;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.copyright {
+    opacity: 0.5;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .about h2,
+    .services h2,
+    .gallery h2,
+    .contact h2 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+}
