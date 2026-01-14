@@ -152,26 +152,26 @@ section {
     gap: 3rem;
 }
 
-.service-card {
+.service-card1, .service-card2, .service-card3 {
     padding: 3rem;
     border: 1px solid rgba(255,255,255,0.2);
     transition: all 0.3s;
     cursor: pointer;
 }
 
-.service-card:hover {
+.service-card:hover, .service-card1:hover, .service-card2:hover, .service-card3:hover {
     background: rgba(255,255,255,0.05);
     transform: translateY(-5px);
 }
 
-.service-card h3 {
+.service-card1 h3, .service-card2 h3, .service-card3 h3 {
     font-size: 1.8rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
 }
 
-.service-card p {
+.service-card1 p, .service-card2 p, .service-card3 p {
     opacity: 0.8;
     font-weight: 300;
     line-height: 1.8;
