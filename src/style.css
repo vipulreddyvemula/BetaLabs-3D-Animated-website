@@ -12,6 +12,20 @@ body {
     overflow-x: hidden;
 }
 
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#canvas-container canvas {
+    display: block;
+}
+
 header {
     padding: 2rem 5%;
     border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -414,8 +428,21 @@ footer {
     transition: all 0.3s;
 }
 
+.member-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+}
+
 .team-member:hover .member-placeholder {
     background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.4);
+}
+
+.team-member:hover .member-photo {
     border-color: rgba(255,255,255,0.4);
 }
 
@@ -460,20 +487,145 @@ footer {
     letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 3rem;
+@media (max-width: 1024px) {
+    header {
+        padding: 1.25rem 4%;
     }
-    
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .services-grid,
+    .gallery-grid,
+    .testimonials-grid,
+    .team-grid,
+    .stats-content {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 4%;
+    }
+
+    nav {
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .gooey-nav-container nav {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .gooey-nav-container nav ul,
+    .nav-links {
+        gap: 0.6rem;
+        padding: 0;
+        flex-wrap: wrap;
+    }
+
+    .gooey-nav-container nav ul li a {
+        padding: 0.5em 0.8em;
+        font-size: 0.78rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+        letter-spacing: -1px;
+    }
+
+    .hero p,
+    .contact p,
+    .about p {
+        font-size: 1rem;
+    }
+
+    section {
+        min-height: auto;
+        padding: 7.5rem 1rem 4.5rem;
+    }
+
     .about h2,
     .services h2,
     .gallery h2,
+    .testimonials h2,
+    .team h2,
     .contact h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
-    
-    .nav-links {
-        gap: 1.5rem;
+
+    .stat h3 {
+        font-size: 2.3rem;
+    }
+
+    .stat p {
+        font-size: 1rem;
+    }
+
+    .services-grid,
+    .gallery-grid,
+    .testimonials-grid,
+    .team-grid,
+    .stats-content {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .service-card1,
+    .service-card2,
+    .service-card3,
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .gallery-item span {
+        font-size: 1rem;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 1rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.1rem;
+        line-height: 1.2;
+    }
+
+    .cta {
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
+        padding: 1rem 1.25rem;
+    }
+
+    .team-member h3 {
+        font-size: 1.2rem;
+    }
+
+    .copyright {
+        font-size: 0.85rem;
     }
 }
 
@@ -488,4 +640,216 @@ footer {
         opacity:1;
         transform: translateY(0);
     }
+}
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+}
+
+.gooey-nav-container {
+  position: relative;
+}
+
+.gooey-nav-container nav {
+  display: flex;
+  position: relative;
+  transform: translate3d(0, 0, 0.01px);
+}
+
+.gooey-nav-container nav ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  padding: 0 1em;
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  color: white;
+  text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
+}
+
+.gooey-nav-container nav ul li {
+  border-radius: 100vw;
+  position: relative;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 0 0.5px 1.5px transparent;
+  color: white;
+}
+
+.gooey-nav-container nav ul li a {
+  display: inline-block;
+  padding: 0.6em 1em;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.gooey-nav-container nav ul li:focus-within:has(:focus-visible) {
+  box-shadow: 0 0 0.5px 1.5px white;
+}
+
+.gooey-nav-container nav ul li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: white;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.gooey-nav-container nav ul li.active {
+  color: black;
+  text-shadow: none;
+}
+
+.gooey-nav-container nav ul li.active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gooey-nav-container .effect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 1;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+.gooey-nav-container .effect.text {
+  color: white;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.gooey-nav-container .effect.text.active {
+  color: black;
+}
+
+.gooey-nav-container .effect.filter {
+  filter: blur(7px) contrast(100) blur(0);
+  mix-blend-mode: screen;
+}
+
+.gooey-nav-container .effect.filter::before {
+  content: '';
+  position: absolute;
+  inset: -75px;
+  z-index: -2;
+  background: black;
+}
+
+.gooey-nav-container .effect.filter::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  transform: scale(0);
+  opacity: 0;
+  z-index: -1;
+  border-radius: 100vw;
+}
+
+.gooey-nav-container .effect.active::after {
+  animation: pill 0.3s ease both;
+}
+
+@keyframes pill {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.particle,
+.point {
+  display: block;
+  opacity: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  transform-origin: center;
+}
+
+.particle {
+  --time: 5s;
+  position: absolute;
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+  animation: particle calc(var(--time)) ease 1 -350ms;
+}
+
+.point {
+  background: var(--color);
+  opacity: 1;
+  animation: point calc(var(--time)) ease 1 -350ms;
+}
+
+@keyframes particle {
+  0% {
+    transform: rotate(0deg) translate(calc(var(--start-x)), calc(var(--start-y)));
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  70% {
+    transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2));
+    opacity: 1;
+    animation-timing-function: ease;
+  }
+
+  85% {
+    transform: rotate(calc(var(--rotate) * 0.66)) translate(calc(var(--end-x)), calc(var(--end-y)));
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5));
+    opacity: 1;
+  }
+}
+
+@keyframes point {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  25% {
+    transform: scale(calc(var(--scale) * 0.25));
+  }
+
+  38% {
+    opacity: 1;
+  }
+
+  65% {
+    transform: scale(var(--scale));
+    opacity: 1;
+    animation-timing-function: ease;
+  }
+
+  85% {
+    transform: scale(var(--scale));
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
 }

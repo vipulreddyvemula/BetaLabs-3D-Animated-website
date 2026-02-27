@@ -5,25 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style.css">
-    <script type="module" src="src/script.js"></script>
     <title>Minimal</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+    <script src="src/splashCursor.js"></script>
+    <script src="src/gooey.js"></script>
+    <script defer src="src/script.js"></script>
+    
 
 </head>
 
 <body>
+        <div id="canvas-container"></div>
+        <div id="fluid-container"></div>
+    <script>
+       
+      // Initialize the splash cursor effect
+      const splashCursor = new SplashCursor("fluid-container", {
+        SIM_RESOLUTION: 128,
+        DYE_RESOLUTION: 1440,
+        DENSITY_DISSIPATION: 3.5,
+        VELOCITY_DISSIPATION: 2,
+        PRESSURE: 0.1,
+        PRESSURE_ITERATIONS: 20,
+        CURL: 3,
+        SPLAT_RADIUS: 0.2,
+        SPLAT_FORCE: 6000,
+        SHADING: true,
+        COLOR_UPDATE_SPEED: 10,
+        BACK_COLOR: { r: 0.5, g: 0, b: 0 },
+      });
+
+      // Optional: destroy on unload
+      window.addEventListener("beforeunload", () => {
+        splashCursor.destroy();
+      });
+    </script>
     <header>
-        <nav>
-            <div class="logo">MINIMAL</div>
-            <ul class="nav-links">
-                <li><a href="#hero">HOME</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#services">SERVICES</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="gooey-nav-container" id="gooeyNav">
+            <nav>
+                <div class="logo">MINIMAL</div>
+                <ul class="nav-links">
+                    <li><a href="#hero">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+            <span class="effect filter"></span>
+            <span class="effect text"></span>
+            </div>
+        </div>
+        
     </header>
 
     <section id="hero" class="hero">
@@ -125,24 +161,24 @@
             <h2>Our Team</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="member-placeholder"></div>
-                    <h3>Alex Rivera</h3>
+                    <img src="./1.jpeg" alt="Alex Rivera" class="member-photo">
+                    <h3>Anita George</h3>
                     <p>Lead Designer</p>
                 </div>
                 <div class="team-member">
-                    <div class="member-placeholder"></div>
-                    <h3>Jordan Lee</h3>
+                    <img src="./2.jpeg" alt="Jordan Lee" class="member-photo">
+                    <h3>Aditya A</h3>
                     <p>Full Stack Developer</p>
                 </div>
                 <div class="team-member">
-                    <div class="member-placeholder"></div>
-                    <h3>Morgan Davis</h3>
+                    <img src="./3.jpeg" alt="Morgan Davis" class="member-photo">
+                    <h3>Josiwn M.J</h3>
                     <p>Project Manager</p>
                 </div>
                 <div class="team-member">
-                    <div class="member-placeholder"></div>
-                    <h3>Casey Wilson</h3>
-                    <p>UX Strategist</p>
+                    <img src="./4.jpeg" alt="Casey Wilson" class="member-photo">
+                    <h3>Vipul Reddy</h3>
+                    <p>UI Strategist</p>
                 </div>
             </div>
         </div>
