@@ -1,5 +1,5 @@
 # 3D Animated Website (Static HTML/CSS/JS)
--made for betalabs ui/ux animation competetion
+-made for betalabs ui/ux animation competition
 A fully static animated landing page built with HTML, CSS, and JavaScript.
 No Node.js runtime or bundler is required.
 
